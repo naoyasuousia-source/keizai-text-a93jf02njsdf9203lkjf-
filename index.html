@@ -2035,32 +2035,46 @@
     });
 
     (function () {
-      const A4_WIDTH_MM = 210; // A4横幅
-      const MM_TO_PX = 3.7795275591; // CSS mm → px換算 (1mm=3.78px)
-      const PAGE_PX = A4_WIDTH_MM * MM_TO_PX; // 210mm ≒ 794px
+      const A4_WIDTH_MM = 210;   // A4横幅
+      const A4_HEIGHT_MM = 297;  // A4縦
+      const MM_TO_PX = 3.7795275591; // CSS mm → px換算 (1mm≒3.78px)
+
+      const PAGE_WIDTH_PX = A4_WIDTH_MM * MM_TO_PX;
+      const PAGE_HEIGHT_PX = A4_HEIGHT_MM * MM_TO_PX;
+
+      // ページ間の見た目の隙間（px）を固定で決める
+      const GAP_PX = 32; // 好みで 24〜48 あたりに変えてOK
 
       function updateScale() {
         const viewportWidth = window.innerWidth;
 
-        // ページ左右に 16px くらい余白持たせると実機で綺麗
+        // ページ左右に少し余白
         const margin = 16;
         const availableWidth = viewportWidth - margin * 2;
 
         // 基本の scale（画面幅に合わせる）
-        let scale = availableWidth / PAGE_PX;
+        let scale = availableWidth / PAGE_WIDTH_PX;
 
-        // PC（横1000px以上）は等倍表示
+        // PC（横1100px以上）は等倍表示
         if (viewportWidth > 1100) scale = 1;
 
         // 最小倍率（読める限界対策）
         if (scale < 0.30) scale = 0.30;
 
-        // すべての .page に適用
         document.querySelectorAll('.page').forEach(page => {
           page.style.transformOrigin = "top center";
           page.style.transform = `scale(${scale})`;
-          page.style.marginBottom = `${- (1 - scale) * 297}px`;
-          // 縮小で高さが短くなって間が空くので補正
+
+          if (scale === 1) {
+            // PCフルサイズ時は CSS 側の margin をそのまま使う
+            page.style.marginBottom = "";
+          } else {
+            // レイアウト上の高さは「等倍のまま」なので、
+            // 見た目の高さとの差分だけ margin-bottom をマイナスして埋める
+            // → 最終的なページ間の隙間が GAP_PX になるように調整
+            const compensate = (1 - scale) * PAGE_HEIGHT_PX;
+            page.style.marginBottom = `${GAP_PX - compensate}px`;
+          }
         });
       }
 
