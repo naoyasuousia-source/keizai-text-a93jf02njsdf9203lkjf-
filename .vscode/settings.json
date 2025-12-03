@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        // 保存対象ファイルのパスに「index.html」が含まれていたら実行
+        "match": "index\\.html$",
+        // ワークスペースルートで updatePages.mjs を実行
+        "cmd": "node ./updatePages.mjs"
+      }
+    ]
+  }
+}
