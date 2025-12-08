@@ -2,280 +2,280 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <title>経済の本質概論</title>
-  <style>
-    body {
-      background: #eee;
-      padding: 2rem;
-      font-family: sans-serif;
-    }
+    <meta charset="UTF-8">
+    <title>経済の本質概論</title>
+    <style>
+        body {
+            background: #eee;
+            padding: 2rem;
+            font-family: sans-serif;
+        }
 
-    .page {
-      /* ここを差し替え・調整 */
+        .page {
+            /* ここを差し替え・調整 */
 
-      width: 210mm;
-      /* A4横幅固定 */
-      height: 297mm;
-      /* A4縦 */
-      background: #fff;
-      margin: 2rem auto;
-      padding: 14mm;
-      /* print と合わせておくとレイアウトが揃う */
-      box-sizing: border-box;
-      position: relative;
+            width: 210mm;
+            /* A4横幅固定 */
+            height: 297mm;
+            /* A4縦 */
+            background: #fff;
+            margin: 2rem auto;
+            padding: 14mm;
+            /* print と合わせておくとレイアウトが揃う */
+            box-sizing: border-box;
+            position: relative;
 
-    }
+        }
 
-    /* 本文フォントサイズ（pだけ0.8rem） */
-    .page p {
-      font-size: 0.8rem;
-      margin-bottom: 1.3rem;
-      line-height: 1.65;
-    }
+        /* 本文フォントサイズ（pだけ0.8rem） */
+        .page p {
+            font-size: 0.8rem;
+            margin-bottom: 1.3rem;
+            line-height: 1.65;
+        }
 
-    .center {
-      text-align: center;
-    }
+        .center {
+            text-align: center;
+        }
 
-    .mt-0 {
-      margin-top: -1rem;
-    }
+        .mt-0 {
+            margin-top: -1rem;
+        }
 
-    .mt-1 {
-      margin-top: 1rem;
-    }
+        .mt-1 {
+            margin-top: 1rem;
+        }
 
-    .mt-2 {
-      margin-top: 2rem;
-    }
+        .mt-2 {
+            margin-top: 2rem;
+        }
 
-    .mt-3 {
-      margin-top: 3rem;
-    }
+        .mt-3 {
+            margin-top: 3rem;
+        }
 
-    .mt-4 {
-      margin-top: 4rem;
-    }
+        .mt-4 {
+            margin-top: 4rem;
+        }
 
-    .mt-5 {
-      margin-top: 5rem;
-    }
+        .mt-5 {
+            margin-top: 5rem;
+        }
 
-    .mt-6 {
-      margin-top: 6rem;
-    }
+        .mt-6 {
+            margin-top: 6rem;
+        }
 
-    .mt-7 {
-      margin-top: 7rem;
-    }
+        .mt-7 {
+            margin-top: 7rem;
+        }
 
-    .mt-8 {
-      margin-top: 8rem;
-    }
+        .mt-8 {
+            margin-top: 8rem;
+        }
 
-    .mt-9 {
-      margin-top: 9rem;
-    }
+        .mt-9 {
+            margin-top: 9rem;
+        }
 
-    .mt-10 {
-      margin-top: 10rem;
-    }
+        .mt-10 {
+            margin-top: 10rem;
+        }
 
-    .page-number {
-      position: absolute;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.9rem;
-      color: #555;
-    }
+        .page-number {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: #555;
+        }
 
-    /* tab 共通：全 h / p のインデントリセット＋タブ幅適用 */
-    [class*="tab-"] p,
-    [class*="tab-"] h1,
-    [class*="tab-"] h2,
-    [class*="tab-"] h3,
-    [class*="tab-"] h4,
-    [class*="tab-"] h5,
-    [class*="tab-"] h6 {
-      text-indent: 0;
-      padding-left: var(--tab-pad);
-    }
+        /* tab 共通：全 h / p のインデントリセット＋タブ幅適用 */
+        [class*="tab-"] p,
+        [class*="tab-"] h1,
+        [class*="tab-"] h2,
+        [class*="tab-"] h3,
+        [class*="tab-"] h4,
+        [class*="tab-"] h5,
+        [class*="tab-"] h6 {
+            text-indent: 0;
+            padding-left: var(--tab-pad);
+        }
 
-    /* 段階的タブ幅（3rem刻み） */
-    .tab-1 {
-      --tab-pad: 3rem;
-    }
+        /* 段階的タブ幅（3rem刻み） */
+        .tab-1 {
+            --tab-pad: 3rem;
+        }
 
-    .tab-2 {
-      --tab-pad: 6rem;
-    }
+        .tab-2 {
+            --tab-pad: 6rem;
+        }
 
-    .tab-3 {
-      --tab-pad: 9rem;
-    }
+        .tab-3 {
+            --tab-pad: 9rem;
+        }
 
-    .tab-4 {
-      --tab-pad: 12rem;
-    }
+        .tab-4 {
+            --tab-pad: 12rem;
+        }
 
-    .tab-5 {
-      --tab-pad: 15rem;
-    }
+        .tab-5 {
+            --tab-pad: 15rem;
+        }
 
-    .tab-6 {
-      --tab-pad: 18rem;
-    }
+        .tab-6 {
+            --tab-pad: 18rem;
+        }
 
-    .toc p {
-      font-size: 1.06rem;
-    }
+        .toc p {
+            font-size: 1.06rem;
+        }
 
-    /* ------------------------------------------------
+        /* ------------------------------------------------
        段落番号（h/p）: 左レールで揃えて、太字にしない
        ------------------------------------------------ */
 
-    .page [data-para] {
-      position: relative;
-    }
+        .page [data-para] {
+            position: relative;
+        }
 
-    .page [data-para]::before {
-      content: "[" attr(data-para) "] ";
-      position: absolute;
-      left: -0.4rem;
-      top: 0.15rem;
-      /* 一行目とほぼ揃うように微調整 */
-      width: 2.2rem;
-      transform: translateX(-100%);
-      font-size: 0.56rem;
-      font-weight: normal;
-      text-align: right;
-      line-height: 1.65;
-      /* p と合わせる */
-    }
+        .page [data-para]::before {
+            content: "[" attr(data-para) "] ";
+            position: absolute;
+            left: -0.4rem;
+            top: 0.15rem;
+            /* 一行目とほぼ揃うように微調整 */
+            width: 2.2rem;
+            transform: translateX(-100%);
+            font-size: 0.56rem;
+            font-weight: normal;
+            text-align: right;
+            line-height: 1.65;
+            /* p と合わせる */
+        }
 
-    .hl-yellow {
-      background-color: #FFFF00;
-      padding: 0.2em 0.05em;
-    }
+        .hl-yellow {
+            background-color: #FFFF00;
+            padding: 0.2em 0.05em;
+        }
 
-    .fig {
-      display: block;
-      margin: 1rem auto;
-      max-width: 100%;
-    }
+        .fig {
+            display: block;
+            margin: 1rem auto;
+            max-width: 100%;
+        }
 
-    .fig-30 {
-      width: 30%;
-    }
+        .fig-30 {
+            width: 30%;
+        }
 
-    .fig-35 {
-      width: 35%;
-    }
+        .fig-35 {
+            width: 35%;
+        }
 
-    .fig-40 {
-      width: 40%;
-    }
+        .fig-40 {
+            width: 40%;
+        }
 
-    .fig-50 {
-      width: 50%;
-    }
+        .fig-50 {
+            width: 50%;
+        }
 
-    .fig-60 {
-      width: 60%;
-    }
+        .fig-60 {
+            width: 60%;
+        }
 
-    .fig-80 {
-      width: 80%;
-    }
+        .fig-80 {
+            width: 80%;
+        }
 
-    .fig-cap {
-      font-size: 0.8rem;
-      /* p と同じ大きさ */
-      font-weight: bold;
-      /* ← 太字化 */
+        .fig-cap {
+            font-size: 0.8rem;
+            /* p と同じ大きさ */
+            font-weight: bold;
+            /* ← 太字化 */
 
-      text-align: center;
-      margin-top: 0.15rem;
-      /* 図との間隔 */
-      line-height: 1.4;
-    }
+            text-align: center;
+            margin-top: 0.15rem;
+            /* 図との間隔 */
+            line-height: 1.4;
+        }
 
-    @media print {
-      @page {
-        size: A4;
-        margin: 0;
-      }
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
 
-      body {
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #fff !important;
-      }
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                background: #fff !important;
+            }
 
-      .page {
-        width: 210mm !important;
-        height: 297mm !important;
-        padding: 14mm !important;
-        /* ここだけ微調整して折り返し詰めていく */
-        margin: 0 !important;
-        box-sizing: border-box;
-        page-break-before: always;
-        page-break-after: always;
-        background: #fff !important;
-        overflow: hidden !important;
-      }
+            .page {
+                width: 210mm !important;
+                height: 297mm !important;
+                padding: 14mm !important;
+                /* ここだけ微調整して折り返し詰めていく */
+                margin: 0 !important;
+                box-sizing: border-box;
+                page-break-before: always;
+                page-break-after: always;
+                background: #fff !important;
+                overflow: hidden !important;
+            }
 
-      .hl-yellow {
-        background-color: #FFFF00 !important;
-        /* ← display指定は消す or コメントアウト */
-        /* display: inline-block !important; ← これ削除 */
+            .hl-yellow {
+                background-color: #FFFF00 !important;
+                /* ← display指定は消す or コメントアウト */
+                /* display: inline-block !important; ← これ削除 */
 
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
 
-      /* 他の print 設定はそのまま */
-    }
+            /* 他の print 設定はそのまま */
+        }
 
-    /* 用語説明ブロック */
-    .def-line {
-      position: relative;
-      /* term を絶対配置するための基準 */
-    }
+        /* 用語説明ブロック */
+        .def-line {
+            position: relative;
+            /* term を絶対配置するための基準 */
+        }
 
-    /* 用語そのもの */
-    .def-term {
-      position: absolute;
-      top: 0;
-      font-weight: bold;
-      font-size: 0.8rem;
-      /* 本文と同じサイズに揃える */
-      white-space: nowrap;
-    }
+        /* 用語そのもの */
+        .def-term {
+            position: absolute;
+            top: 0;
+            font-weight: bold;
+            font-size: 0.8rem;
+            /* 本文と同じサイズに揃える */
+            white-space: nowrap;
+        }
 
-    /* 用語のタブ位置（ここで「景気」のレールを選ぶ） */
-    .term-tab-1 {
-      left: 3rem;
-    }
+        /* 用語のタブ位置（ここで「景気」のレールを選ぶ） */
+        .term-tab-1 {
+            left: 3rem;
+        }
 
-    /* tab-1 の位置 */
-    .term-tab-2 {
-      left: 6rem;
-    }
+        /* tab-1 の位置 */
+        .term-tab-2 {
+            left: 6rem;
+        }
 
-    /* tab-2 の位置 */
-    .term-tab-3 {
-      left: 9rem;
-    }
+        /* tab-2 の位置 */
+        .term-tab-3 {
+            left: 9rem;
+        }
 
-    .fig {
-      border: 1px solid #555;
-      padding: 0rem;
-      border-radius: 0;
-    }
-  </style>
+        .fig {
+            border: 1px solid #555;
+            padding: 0rem;
+            border-radius: 0;
+        }
+    </style>
 </head>
 <body>
 <section class="page" id="page-1" data-page="1">
@@ -337,7 +337,7 @@
     <strong>市場メカニズム</strong>でモノの価格が調整される仕組みは以下の図1の需要供給曲線で説明できる。まず、モノの価格が高いほど買う人が減るので<strong>需要曲線</strong>は右下がりになる。一方、価格が高いほど売りたい人が増えるため<strong>供給曲線</strong>は右上がりになる。この2本が交わる点<strong>（均衡点）</strong>で需要と供給が一致し、価格と取引量が安定する。均衡点では、売れ残りも品不足もない状態であり、労働力や資源は最も効率的に使われていると言える。このように市場メカニズムによって、価格は自動的に調整されて市場が安定する。
   </p>
   <p id="p2-8" data-para="8">
-    <img src="https://www.dropbox.com/scl/fi/viuoqcfneqyshhaq6xmpp/fig.demand-and-supply-curve.png?rlkey=616rqnr8e81hvpnr1lxo3083y&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.demand-and-supply-curve.png"
     alt="図1：需要供給曲線" class="fig fig-35" data-fig="図1">
   </p>
   <p id="p2-9" data-para="9">
@@ -719,7 +719,7 @@
 </section>
 <section class="page" id="page-13" data-page="13">
   <p id="p13-1" data-para="1">
-    <img src="https://www.dropbox.com/scl/fi/s0jyq0u7xc834i60hzrpy/fig.money-supply.png?rlkey=7izzb1e9r39yupqu8iqat440q&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.money-supply.png"
     alt="図2：財政支出・国債発行・信用創造が連動してマネーサプライを増やす仕組みを示した図" class="fig fig-80" data-fig="図2">
   </p>
   <div class="tab-1">
@@ -1269,30 +1269,30 @@
 </section>
 <section class="page" id="page-28" data-page="28">
   <p id="p28-1" data-para="1">
-    <img src="https://www.dropbox.com/scl/fi/oihd2v1pabmuhtz73j0yc/fig.japan-event.jpg?rlkey=ipa5ej497p6huc6qrjew55qga&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.japan-event.jpg"
     alt="図3：日本経済史の主要イベント" class="fig fig-50" data-fig="図3">
   </p>
   <p id="p28-2" data-para="2">
-    <img src="https://www.dropbox.com/scl/fi/2iej3q4zvef9uc3suytq9/fig.market-capitalization.jpg?rlkey=hvtirurhro99wm6eqaprx530b&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.market-capitalization.jpg"
     alt="図4：1989年と2024年の時価総額ランキング" class="fig fig-40" data-fig="図4">
   </p>
   <p id="p28-3" data-para="3">
-    <img src="https://www.dropbox.com/scl/fi/4mc1hz43mg78aheoqn3jq/fig.real-gdp.png?rlkey=qtw58mnqgcnbovntm97um6ot5&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.real-gdp.png"
     alt="図5：実質GDPの推移" class="fig fig-60" data-fig="図5">
   </p>
   <div class="page-number">28</div>
 </section>
 <section class="page" id="page-29" data-page="29">
   <p id="p29-1" data-para="1">
-    <img src="https://www.dropbox.com/scl/fi/oscq5o22fqr7fq3h2wdnu/fig.real-wage.png?rlkey=csa0ux0e9a1ugin6wf55k53hw&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.real-wage.png"
     alt="図6：主要国の実質賃金推移" class="fig fig-50" data-fig="図6">
   </p>
   <p id="p29-2" data-para="2">
-    <img src="https://www.dropbox.com/scl/fi/mcc75fmn0lc80gqb9fvtr/fig.labor-productivity.png?rlkey=92r1wtg5ivto7c03uvdycm2e5&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.labor-productivity.png"
     alt="図7：労働生産性の推移" class="fig fig-50" data-fig="図7">
   </p>
   <p id="p29-3" data-para="3">
-    <img src="https://www.dropbox.com/scl/fi/a1vaxlk7h85q0ja9ldqcq/fig.primary-balance.jpg?rlkey=xknkl37hu1dyla4c5k0xizijv&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.primary-balance.jpg"
     alt="図8：主要国の財政収支推移" class="fig fig-50" data-fig="図8">
   </p>
   <div class="page-number">29</div>
@@ -1387,7 +1387,7 @@
   </p>
   </div>
   <p class="mt-3" id="p31-7" data-para="7">
-    <img src="https://www.dropbox.com/scl/fi/gnhmpiyyv5gv7o7vv64rh/fig.fiscal-spending-vs-gdp-growth.png?rlkey=lx9y8fjtxzujguovfxv0whako&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.fiscal-spending-vs-gdp-growth.png"
     alt="図9：名目財政支出の伸びと名目GDPの伸びの関係" class="fig fig-60" data-fig="図9">
   </p>
   <div class="page-number">31</div>
@@ -1554,15 +1554,15 @@
     【8.日本経済復活までの具体的な道しるべ】
   </h2>
   <p class="mt-3" id="p36-2" data-para="2">
-    <img src="https://www.dropbox.com/scl/fi/4nqu080a8fgxnajer524a/fig.general-account.png?rlkey=tuwd32viypa7lmvd185o620aa&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.general-account.png"
     alt="図10：2025年度一般会計" class="fig fig-60" data-fig="図10">
   </p>
   <p class="mt-3" id="p36-3" data-para="3">
-    <img src="https://www.dropbox.com/scl/fi/nki8716f652buve8ioxhd/fig.inflation-rate.png?rlkey=ndfxb2cw0qgczudknm5q9qmfg&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.inflation-rate.png"
     alt="図11：日本のインフレ率推移" class="fig fig-40" data-fig="図11">
   </p>
   <p class="mt-3" id="p36-4" data-para="4">
-    <img src="https://www.dropbox.com/scl/fi/ud7wqu4cukulvbz5nv39e/fig.primary-balance-international.png?rlkey=t9i3xqw7yb9sft68e7956gh00&raw=1"
+    <img src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.primary-balance-international.png"
     alt="図12：主要国のプライマリーバランス対GDP比" class="fig fig-40" data-fig="図12">
   </p>
   <div class="page-number">36</div>
@@ -1945,142 +1945,143 @@
   </div>
   <div class="page-number">45</div>
 </section>
-  <!-- ================================
+    <!-- ================================
        GPT用 図メタデータ（非表示）
   ================================= -->
-  <div id="gpt-figure-index" style="display:none">
-    <div class="figure-meta" data-fig="図1" data-anchor="p2-8" data-title="需要供給曲線"
-      data-tags="価格,需要,供給,市場メカニズム,自由競争,調整,資源,効率的,売れ残り,品不足" data-caption="需要と供給が交わる均衡点が市場価格と取引量を決める基本モデル。"
-      src="https://www.dropbox.com/scl/fi/viuoqcfneqyshhaq6xmpp/fig.demand-and-supply-curve.png?rlkey=616rqnr8e81hvpnr1lxo3083y&raw=1">
+    <div id="gpt-figure-index" style="display:none">
+        <div class="figure-meta" data-fig="図1" data-anchor="p2-8" data-title="需要供給曲線"
+            data-tags="価格,需要,供給,市場メカニズム,自由競争,調整,資源,効率的,売れ残り,品不足" data-caption="需要と供給が交わる均衡点が市場価格と取引量を決める基本モデル。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.demand-and-supply-curve.png">
+        </div>
+
+        <div class="figure-meta" data-fig="図2" data-anchor="p13-1" data-title="財政支出・国債発行・信用創造が連動してマネーサプライを増やす仕組みを示した図"
+            data-tags="政府,財政政策,国債,中央銀行,市中銀行,信用創造,融資,マネーサプライ,需要,企業"
+            data-caption="財政支出・国債発行・信用創造が連動してマネーサプライを増やす仕組みを示した図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.money-supply.png">
+        </div>
+
+        <div class="figure-meta" data-fig="図3" data-anchor="p28-1" data-title="日本経済史の主要イベント"
+            data-tags="日本経済,成長,不況,景気,オイルショック,バブル崩壊,リーマンショック" data-caption="日本経済の長期的な景気循環を主要イベントとともに示し、成長と不況の転換点を視覚化した図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.japan-event.jpg">
+        </div>
+
+        <div class="figure-meta" data-fig="図4" data-anchor="p28-2" data-title="1989年と2024年の時価総額ランキング"
+            data-tags="時価総額,NTT,企業,競争力" data-caption="1989年と2024年の時価総額上位企業を比較し、日本企業の地位低下と産業構造の変化を示す図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.market-capitalization.jpg">
+        </div>
+
+        <div class="figure-meta" data-fig="図5" data-anchor="p28-3" data-title="実質GDPの推移"
+            data-tags="実質GDP,日本経済,成長,景気,物価,生産性,デフレ" data-caption="実質GDPの長期推移を示し、日本経済の成長鈍化と景気変動の実態を可視化した図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.real-gdp.png">
+        </div>
+
+        <div class="figure-meta" data-fig="図6" data-anchor="p29-1" data-title="主要国の実質賃金推移"
+            data-tags="実質賃金,日本経済,成長,賃金,生産性,バブル崩壊" data-caption="主要国の実質賃金推移を比較し、日本だけ賃金が停滞している現状を示す図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.real-wage.png">
+        </div>
+
+        <div class="figure-meta" data-fig="図7" data-anchor="p29-2" data-title="労働生産性の推移"
+            data-tags="実質賃金,賃金,生産性,需要,企業,家計,景気,物価,デフレ" data-caption="労働時間と実質賃金の推移から、日本の生産性停滞と賃金上昇の弱さを示す指標。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.labor-productivity.png">
+        </div>
+
+        <div class="figure-meta" data-fig="図8" data-anchor="p29-3" data-title="主要国の財政収支推移"
+            data-tags="財政収支,政府支出,日本経済,需要,景気,デフレ,成長,プライマリーバランス" data-caption="主要国の財政収支の推移を比較し、日本の財政悪化と景気停滞の特徴を示す図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.primary-balance.jpg">
+        </div>
+
+        <div class="figure-meta" data-fig="図9" data-anchor="p31-7" data-title="名目財政支出の伸びと名目GDPの伸びの関係"
+            data-tags="財政支出,GDP,成長,需要,政府支出,景気,日本経済,デフレ,プライマリーバランス" data-caption="名目財政支出の伸びが名目GDP成長と強く連動する国際比較を示した図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.fiscal-spending-vs-gdp-growth.png">
+        </div>
+
+        <div class="figure-meta" data-fig="図10" data-anchor="p36-2" data-title="2025年度一般会計"
+            data-tags="政府支出,歳出,税収,社会保障,財政政策,日本経済,需要,企業,家計,物価" data-caption="一般会計の歳出と歳入の内訳を示し、日本の財政構造と主要項目の比率を示した図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.general-account.png">
+        </div>
+
+        <div class="figure-meta" data-fig="図11" data-anchor="p36-3" data-title="日本のインフレ率推移"
+            data-tags="物価,インフレ,デフレ,日本経済,需要,景気,企業,家計,生産性,成長" data-caption="日本のインフレ率の長期推移を示し、デフレと低インフレが続いた構造的問題を可視化した図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.inflation-rate.png">
+        </div>
+
+        <div class="figure-meta" data-fig="図12" data-anchor="p36-4" data-title="主要国のプライマリーバランス対GDP比"
+            data-tags="財政収支,政府支出,日本経済,景気,デフレ,成長,プライマリーバランス" data-caption="各国のプライマリーバランスの推移を比較し、日本の長期的な基礎的財政赤字の深刻さを示す図。"
+            src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.primary-balance-international.png">
+        </div>
+
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("img.fig").forEach(img => {
+                // mjs が書いた alt（例: "図3：～～"）をそのまま使う
+                const altText = img.getAttribute("alt")?.trim() || "";
 
-    <div class="figure-meta" data-fig="図2" data-anchor="p13-1" data-title="財政支出・国債発行・信用創造が連動してマネーサプライを増やす仕組みを示した図"
-      data-tags="政府,財政政策,国債,中央銀行,市中銀行,信用創造,融資,マネーサプライ,需要,企業" data-caption="財政支出・国債発行・信用創造が連動してマネーサプライを増やす仕組みを示した図。"
-      src="https://www.dropbox.com/scl/fi/s0jyq0u7xc834i60hzrpy/fig.money-supply.png?rlkey=7izzb1e9r39yupqu8iqat440q&raw=1">
-    </div>
+                // すでにキャプションあれば削除して付け直し
+                if (img.nextElementSibling && img.nextElementSibling.classList.contains("fig-cap")) {
+                    img.nextElementSibling.remove();
+                }
 
-    <div class="figure-meta" data-fig="図3" data-anchor="p28-1" data-title="日本経済史の主要イベント"
-      data-tags="日本経済,成長,不況,景気,オイルショック,バブル崩壊,リーマンショック" data-caption="日本経済の長期的な景気循環を主要イベントとともに示し、成長と不況の転換点を視覚化した図。"
-      src="https://www.dropbox.com/scl/fi/oihd2v1pabmuhtz73j0yc/fig.japan-event.jpg?rlkey=ipa5ej497p6huc6qrjew55qga&raw=1">
-    </div>
+                // キャプション生成
+                const cap = document.createElement("div");
+                cap.className = "fig-cap";
+                cap.textContent = altText;
 
-    <div class="figure-meta" data-fig="図4" data-anchor="p28-2" data-title="1989年と2024年の時価総額ランキング"
-      data-tags="時価総額,NTT,企業,競争力" data-caption="1989年と2024年の時価総額上位企業を比較し、日本企業の地位低下と産業構造の変化を示す図。"
-      src="https://www.dropbox.com/scl/fi/2iej3q4zvef9uc3suytq9/fig.market-capitalization.jpg?rlkey=hvtirurhro99wm6eqaprx530b&raw=1">
-    </div>
-
-    <div class="figure-meta" data-fig="図5" data-anchor="p28-3" data-title="実質GDPの推移"
-      data-tags="実質GDP,日本経済,成長,景気,物価,生産性,デフレ" data-caption="実質GDPの長期推移を示し、日本経済の成長鈍化と景気変動の実態を可視化した図。"
-      src="https://www.dropbox.com/scl/fi/4mc1hz43mg78aheoqn3jq/fig.real-gdp.png?rlkey=qtw58mnqgcnbovntm97um6ot5&raw=1">
-    </div>
-
-    <div class="figure-meta" data-fig="図6" data-anchor="p29-1" data-title="主要国の実質賃金推移"
-      data-tags="実質賃金,日本経済,成長,賃金,生産性,バブル崩壊" data-caption="主要国の実質賃金推移を比較し、日本だけ賃金が停滞している現状を示す図。"
-      src="https://naoyasuousia-source.github.io/keizai-text-a93jf02njsdf9203lkjf-/figs/fig.real-wage.png">
-    </div>
-
-    <div class="figure-meta" data-fig="図7" data-anchor="p29-2" data-title="労働生産性の推移"
-      data-tags="実質賃金,賃金,生産性,需要,企業,家計,景気,物価,デフレ" data-caption="労働時間と実質賃金の推移から、日本の生産性停滞と賃金上昇の弱さを示す指標。"
-      src="https://www.dropbox.com/scl/fi/oscq5o22fqr7fq3h2wdnu/fig.real-wage.png?rlkey=csa0ux0e9a1ugin6wf55k53hw&raw=1">
-    </div>
-
-    <div class="figure-meta" data-fig="図8" data-anchor="p29-3" data-title="主要国の財政収支推移"
-      data-tags="財政収支,政府支出,日本経済,需要,景気,デフレ,成長,プライマリーバランス" data-caption="主要国の財政収支の推移を比較し、日本の財政悪化と景気停滞の特徴を示す図。"
-      src="https://www.dropbox.com/scl/fi/a1vaxlk7h85q0ja9ldqcq/fig.primary-balance.jpg?rlkey=xknkl37hu1dyla4c5k0xizijv&raw=1">
-    </div>
-
-    <div class="figure-meta" data-fig="図9" data-anchor="p31-7" data-title="名目財政支出の伸びと名目GDPの伸びの関係"
-      data-tags="財政支出,GDP,成長,需要,政府支出,景気,日本経済,デフレ,プライマリーバランス" data-caption="名目財政支出の伸びが名目GDP成長と強く連動する国際比較を示した図。"
-      src="https://www.dropbox.com/scl/fi/gnhmpiyyv5gv7o7vv64rh/fig.fiscal-spending-vs-gdp-growth.png?rlkey=lx9y8fjtxzujguovfxv0whako&raw=1">
-    </div>
-
-    <div class="figure-meta" data-fig="図10" data-anchor="p36-2" data-title="2025年度一般会計"
-      data-tags="政府支出,歳出,税収,社会保障,財政政策,日本経済,需要,企業,家計,物価" data-caption="一般会計の歳出と歳入の内訳を示し、日本の財政構造と主要項目の比率を示した図。"
-      src="https://www.dropbox.com/scl/fi/4nqu080a8fgxnajer524a/fig.general-account.png?rlkey=tuwd32viypa7lmvd185o620aa&raw=1">
-    </div>
-
-    <div class="figure-meta" data-fig="図11" data-anchor="p36-3" data-title="日本のインフレ率推移"
-      data-tags="物価,インフレ,デフレ,日本経済,需要,景気,企業,家計,生産性,成長" data-caption="日本のインフレ率の長期推移を示し、デフレと低インフレが続いた構造的問題を可視化した図。"
-      src="https://www.dropbox.com/scl/fi/nki8716f652buve8ioxhd/fig.inflation-rate.png?rlkey=ndfxb2cw0qgczudknm5q9qmfg&raw=1">
-    </div>
-
-    <div class="figure-meta" data-fig="図12" data-anchor="p36-4" data-title="主要国のプライマリーバランス対GDP比"
-      data-tags="財政収支,政府支出,日本経済,景気,デフレ,成長,プライマリーバランス" data-caption="各国のプライマリーバランスの推移を比較し、日本の長期的な基礎的財政赤字の深刻さを示す図。"
-      src="https://www.dropbox.com/scl/fi/ud7wqu4cukulvbz5nv39e/fig.primary-balance-international.png?rlkey=t9i3xqw7yb9sft68e7956gh00&raw=1">
-    </div>
-
-  </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll("img.fig").forEach(img => {
-        // mjs が書いた alt（例: "図3：～～"）をそのまま使う
-        const altText = img.getAttribute("alt")?.trim() || "";
-
-        // すでにキャプションあれば削除して付け直し
-        if (img.nextElementSibling && img.nextElementSibling.classList.contains("fig-cap")) {
-          img.nextElementSibling.remove();
-        }
-
-        // キャプション生成
-        const cap = document.createElement("div");
-        cap.className = "fig-cap";
-        cap.textContent = altText;
-
-        img.after(cap);
-      });
-    });
-
-    (function () {
-      const A4_WIDTH_MM = 210;   // A4横幅
-      const A4_HEIGHT_MM = 297;  // A4縦
-      const MM_TO_PX = 3.7795275591; // CSS mm → px換算 (1mm≒3.78px)
-
-      const PAGE_WIDTH_PX = A4_WIDTH_MM * MM_TO_PX;
-      const PAGE_HEIGHT_PX = A4_HEIGHT_MM * MM_TO_PX;
-
-      // ページ間の見た目の隙間（px）を固定で決める
-      const GAP_PX = 32; // 好みで 24〜48 あたりに変えてOK
-
-      function updateScale() {
-        const viewportWidth = window.innerWidth;
-
-        // ページ左右に少し余白
-        const margin = 16;
-        const availableWidth = viewportWidth - margin * 2;
-
-        // 基本の scale（画面幅に合わせる）
-        let scale = availableWidth / PAGE_WIDTH_PX;
-
-        // PC（横1100px以上）は等倍表示
-        if (viewportWidth > 1100) scale = 1;
-
-        // 最小倍率（読める限界対策）
-        if (scale < 0.30) scale = 0.30;
-
-        document.querySelectorAll('.page').forEach(page => {
-          page.style.transformOrigin = "top center";
-          page.style.transform = `scale(${scale})`;
-
-          if (scale === 1) {
-            // PCフルサイズ時は CSS 側の margin をそのまま使う
-            page.style.marginBottom = "";
-          } else {
-            // レイアウト上の高さは「等倍のまま」なので、
-            // 見た目の高さとの差分だけ margin-bottom をマイナスして埋める
-            // → 最終的なページ間の隙間が GAP_PX になるように調整
-            const compensate = (1 - scale) * PAGE_HEIGHT_PX;
-            page.style.marginBottom = `${GAP_PX - compensate}px`;
-          }
+                img.after(cap);
+            });
         });
-      }
 
-      // 初期起動
-      updateScale();
+        (function () {
+            const A4_WIDTH_MM = 210;   // A4横幅
+            const A4_HEIGHT_MM = 297;  // A4縦
+            const MM_TO_PX = 3.7795275591; // CSS mm → px換算 (1mm≒3.78px)
 
-      // 画面回転 / 端末リサイズ対応
-      window.addEventListener('resize', updateScale);
-    })();
-  </script>
+            const PAGE_WIDTH_PX = A4_WIDTH_MM * MM_TO_PX;
+            const PAGE_HEIGHT_PX = A4_HEIGHT_MM * MM_TO_PX;
+
+            // ページ間の見た目の隙間（px）を固定で決める
+            const GAP_PX = 32; // 好みで 24〜48 あたりに変えてOK
+
+            function updateScale() {
+                const viewportWidth = window.innerWidth;
+
+                // ページ左右に少し余白
+                const margin = 16;
+                const availableWidth = viewportWidth - margin * 2;
+
+                // 基本の scale（画面幅に合わせる）
+                let scale = availableWidth / PAGE_WIDTH_PX;
+
+                // PC（横1100px以上）は等倍表示
+                if (viewportWidth > 1100) scale = 1;
+
+                // 最小倍率（読める限界対策）
+                if (scale < 0.30) scale = 0.30;
+
+                document.querySelectorAll('.page').forEach(page => {
+                    page.style.transformOrigin = "top center";
+                    page.style.transform = `scale(${scale})`;
+
+                    if (scale === 1) {
+                        // PCフルサイズ時は CSS 側の margin をそのまま使う
+                        page.style.marginBottom = "";
+                    } else {
+                        // レイアウト上の高さは「等倍のまま」なので、
+                        // 見た目の高さとの差分だけ margin-bottom をマイナスして埋める
+                        // → 最終的なページ間の隙間が GAP_PX になるように調整
+                        const compensate = (1 - scale) * PAGE_HEIGHT_PX;
+                        page.style.marginBottom = `${GAP_PX - compensate}px`;
+                    }
+                });
+            }
+
+            // 初期起動
+            updateScale();
+
+            // 画面回転 / 端末リサイズ対応
+            window.addEventListener('resize', updateScale);
+        })();
+    </script>
 </body>
 
 </html>
