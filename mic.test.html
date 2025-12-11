@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイク音声 録音・再生・ダウンロード</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #1c1c1e;
+        }
+        #status-container {
+            margin: 1rem 0;
+            font-size: 1rem;
+            color: #666;
+        }
+        #status {
+            font-weight: bold;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .status-ready { background-color: #e0e0e0; color: #333; }
+        .status-recording { background-color: #ffdddd; color: #d32f2f; }
+        .status-finished { background-color: #ddffdd; color: #388e3c; }
+        .status-error { background-color: #ffdddd; color: #d32f2f; }
+
+        .buttons {
+            margin: 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        button {
+            padding: 0.75rem 1.25rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s, transform 0.1s;
+            flex-grow: 1;
+            min-width: 120px;
+        }
+        button:disabled {
+            background-color: #dcdcdc;
+            cursor: not-allowed;
+            color: #888;
+        }
+        button:not(:disabled):hover {
+            transform: translateY(-2px);
+        }
+        #startButton { background-color: #34c759; color: white; }
+        #stopButton { background-color: #ff3b30; color: white; }
+        #playButton, #downloadButton { background-color: #007aff; color: white; }
+
+        audio {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>マイク音声 録音・再生・ダウンロード</h1>
+        <div id="status-container">ステータス: <span id="status" class="status-ready">準備完了</span></div>
+        <div class="buttons">
+            <button id="startButton">録音開始</button>
+            <button id="stopButton" disabled>録音停止</button>
+            <button id="playButton" disabled>再生</button>
+            <button id="downloadButton" disabled>ダウンロード</button>
+        </div>
+        <audio id="audioPlayer" controls></audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const startButton = document.getElementById('startButton');
+            const stopButton = document.getElementById('stopButton');
+            const playButton = document.getElementById('playButton');
+            const downloadButton = document.getElementById('downloadButton');
+            const statusSpan = document.getElementById('status');
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            let mediaStream = null;
+            let mediaRecorder = null;
+            let audioChunks = [];
+            let recordedBlob = null;
+            let blobUrl = null;
+
+            const updateStatus = (text, className) => {
+                statusSpan.textContent = text;
+                statusSpan.className = `status-${className}`;
+            };
+
+            const checkSupport = () => {
+                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                    updateStatus('エラー: getUserMediaがサポートされていません', 'error');
+                    disableAllButtons();
+                    return false;
+                }
+                if (!window.MediaRecorder) {
+                    updateStatus('エラー: MediaRecorderがサポートされていません', 'error');
+                    disableAllButtons();
+                    return false;
+                }
+                return true;
+            };
+
+            const disableAllButtons = () => {
+                startButton.disabled = true;
+                stopButton.disabled = true;
+                playButton.disabled = true;
+                downloadButton.disabled = true;
+            };
+            
+            // 録音開始処理
+            startButton.addEventListener('click', async () => {
+                if (!checkSupport()) return;
+
+                try {
+                    mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+                    
+                    startButton.disabled = true;
+                    stopButton.disabled = false;
+                    playButton.disabled = true;
+                    downloadButton.disabled = true;
+                    audioChunks = [];
+                    
+                    const options = { mimeType: 'audio/webm' };
+                    mediaRecorder = new MediaRecorder(mediaStream, options);
+
+                    mediaRecorder.ondataavailable = (event) => {
+                        if (event.data.size > 0) {
+                            audioChunks.push(event.data);
+                        }
+                    };
+
+                    mediaRecorder.onstop = () => {
+                        recordedBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                        blobUrl = URL.createObjectURL(recordedBlob);
+                        audioPlayer.src = blobUrl;
+
+                        stopButton.disabled = true;
+                        startButton.disabled = false;
+                        playButton.disabled = false;
+                        downloadButton.disabled = false;
+                        
+                        updateStatus('録音完了', 'finished');
+                        
+                        // ストリームを停止
+                        mediaStream.getTracks().forEach(track => track.stop());
+                        mediaStream = null;
+                    };
+
+                    mediaRecorder.start();
+                    updateStatus('録音中...', 'recording');
+
+                } catch (err) {
+                    console.error('Error starting recording:', err);
+                    let message = 'エラーが発生しました';
+                    if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+                        message = 'エラー: マイクへのアクセスが拒否されました';
+                    } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+                        message = 'エラー: 利用可能なマイクが見つかりません';
+                    }
+                    updateStatus(message, 'error');
+                    startButton.disabled = false;
+                    stopButton.disabled = true;
+                }
+            });
+
+            // 録音停止処理
+            stopButton.addEventListener('click', () => {
+                if (mediaRecorder && mediaRecorder.state === 'recording') {
+                    mediaRecorder.stop();
+                }
+            });
+
+            // 再生処理
+            playButton.addEventListener('click', () => {
+                if (blobUrl) {
+                    audioPlayer.play();
+                } else {
+                    alert('再生する録音がありません。');
+                }
+            });
+            
+            // ダウンロード処理
+            downloadButton.addEventListener('click', () => {
+                if (blobUrl) {
+                    const a = document.createElement('a');
+                    const now = new Date();
+                    const timestamp = `${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}-${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
+                    a.href = blobUrl;
+                    a.download = `recording-${timestamp}.webm`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                } else {
+                    alert('ダウンロードする録音がありません。');
+                }
+            });
+
+            // 初期チェックを実行
+            checkSupport();
+        });
+    </script>
+</body>
+</html>
